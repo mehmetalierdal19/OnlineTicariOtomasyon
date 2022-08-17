@@ -10,6 +10,7 @@ namespace MvcOnlineTicariOtomasyon.Models.Siniflar
     {
         [Key]
         public int DepartmanID { get; set; }
+        [StringLength(50)]
         public string DepartmanAd { get; set; }
         public ICollection<Personel> Personels { get; set; }
     }

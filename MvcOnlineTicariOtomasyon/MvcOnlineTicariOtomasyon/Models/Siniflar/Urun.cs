@@ -10,7 +10,9 @@ namespace MvcOnlineTicariOtomasyon.Models.Siniflar
     {
         [Key]
         public int UrunID { get; set; }
+        [StringLength(50)]
         public string UrunAd { get; set; }
+        [StringLength(50)]
         public string Marka { get; set; }
         public int Stok { get; set; }
         public decimal AlisFiyat { get; set; }

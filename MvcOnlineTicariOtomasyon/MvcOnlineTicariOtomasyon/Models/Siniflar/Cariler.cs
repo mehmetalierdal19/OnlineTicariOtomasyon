@@ -10,9 +10,13 @@ namespace MvcOnlineTicariOtomasyon.Models.Siniflar
     {
         [Key]
         public int CariID { get; set; }
+        [StringLength(50)]
         public string CariAd { get; set; }
+        [StringLength(50)]
         public string CariSoyad { get; set; }
+        [StringLength(50)]
         public string CariSehir { get; set; }
+        [StringLength(50)]
         public string CariMail { get; set; }
         public SatisHareket SatisHareket { get; set; }
     }

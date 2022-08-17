@@ -10,8 +10,11 @@ namespace MvcOnlineTicariOtomasyon.Models.Siniflar
     {
         [Key]
         public int AdminID { get; set; }
+        [StringLength(50)]
         public string KullaniciAd { get; set; }
+        [StringLength(50)]
         public string Sifre { get; set; }
+        [StringLength(5)]
         public string Yetki { get; set; }
     }
 }

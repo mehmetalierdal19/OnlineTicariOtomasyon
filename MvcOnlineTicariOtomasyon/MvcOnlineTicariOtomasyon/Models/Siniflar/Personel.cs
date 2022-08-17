@@ -10,7 +10,9 @@ namespace MvcOnlineTicariOtomasyon.Models.Siniflar
     {
         [Key]
         public int PersonelID { get; set; }
+        [StringLength(50)]
         public string PersonelAd { get; set; }
+        [StringLength(50)]
         public string PersonelSoyad { get; set; }
         public string PersonelGorsel { get; set; }
         public SatisHareket SatisHareket { get; set; }
