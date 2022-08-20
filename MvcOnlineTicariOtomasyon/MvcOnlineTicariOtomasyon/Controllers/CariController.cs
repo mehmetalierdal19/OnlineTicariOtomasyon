@@ -59,5 +59,12 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             }
 
         }
+        public ActionResult CariSatis(int id)
+        {
+            var degerler = c.SatisHarekets.Where(x => x.Cariid == id).ToList();
+            var ad = c.Carilers.Find(id);
+            ViewBag.cariad = ad.CariAd + " " + ad.CariSoyad;
+            return View(degerler);
+        }
     }
 }
