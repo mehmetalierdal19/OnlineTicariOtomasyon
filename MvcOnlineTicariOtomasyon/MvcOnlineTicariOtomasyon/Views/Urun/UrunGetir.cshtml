@@ -1,0 +1,48 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.Urun
+@{
+    ViewBag.Title = "UrunGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Urun Güncelleme Sayfası</h2>
+
+@using (Html.BeginForm("UrunGuncelle", "Urun", FormMethod.Post))
+{
+<div class="form-group">
+    <div>
+        <label class="font-weight-bold mb-2" for="inputEmailAddress">Ürün Ad</label>
+        @Html.TextBoxFor(x => x.UrunID, new { @class = "form-control py-4", @type = "hidden" })
+        @Html.TextBoxFor(x => x.UrunAd, new { @class = "form-control py-4" })
+    </div>
+    <div>
+        <label class="font-weight-bold mb-2">Marka</label>
+        @Html.TextBoxFor(x => x.Marka, new { @class = "form-control py-4" })
+    </div>
+    <div>
+        <label class="font-weight-bold mb-2">Stok Miktarı</label>
+        @Html.TextBoxFor(x => x.Stok, new { @class = "form-control py-4" })
+    </div>
+    <div>
+        <label class="font-weight-bold mb-2">Alış Fiyatı</label>
+        @Html.TextBoxFor(x => x.AlisFiyat, new { @class = "form-control py-4" })
+    </div>
+    <div>
+        <label class="font-weight-bold mb-2">Satış Fiyatı</label>
+        @Html.TextBoxFor(x => x.SatisFiyat, new { @class = "form-control py-4" })
+    </div>
+    <div>
+        <label class="font-weight-bold mb-2">Ürün Kategorisi</label>
+        @Html.DropDownListFor(x => x.Kategoriid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+    </div>
+    <div>
+        <label class="font-weight-bold mb-2">Ürün Görseli</label>
+        @Html.TextBoxFor(x => x.Gorsel, new { @class = "form-control py-4" })
+    </div>
+    <div>
+        <label class="font-weight-bold mb-2">Durum</label>
+        @Html.TextBoxFor(x => x.Durum, new { @class = "form-control py-4" })
+    </div>
+
+</div>
+    <div class="form-group mt-4 mb-0"><button class="btn btn-info btn-block">Güncelle</button></div>
+}

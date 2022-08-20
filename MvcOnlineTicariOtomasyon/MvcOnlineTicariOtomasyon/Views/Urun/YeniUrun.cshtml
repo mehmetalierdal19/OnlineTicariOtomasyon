@@ -1,0 +1,44 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.Urun
+@{
+    ViewBag.Title = "YeniUrun";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="mt-4">Yeni Ürün Sayfası</h2>
+
+<form class="mt-4 form-group" method="post">
+    <div class="mb-3">
+        <label class="font-weight-bold mb-2" for="inputEmailAddress">Ürün Adı</label>
+        @Html.TextBoxFor(x => x.UrunAd, new { @class = "form-control py-4", @placeholder = "Ürün Adı Giriniz" })
+    </div>
+    <div class="mb-3">
+        <label class="font-weight-bold mb-2" for="inputEmailAddress">Marka</label>
+        @Html.TextBoxFor(x => x.Marka, new { @class = "form-control py-4", @placeholder = "Marka Giriniz" })
+    </div>
+    <div class="mb-3">
+        <label class="font-weight-bold mb-2" for="inputEmailAddress">Stok Miktarı</label>
+        @Html.TextBoxFor(x => x.Stok, new { @class = "form-control py-4", @placeholder = "Stok Adedi Giriniz" })
+    </div>
+    <div class="mb-3">
+        <label class="font-weight-bold mb-2" for="inputEmailAddress">Alış Fiyatı</label>
+        @Html.TextBoxFor(x => x.AlisFiyat, new { @class = "form-control py-4", @placeholder = "Alış Fiyatı Giriniz" })
+    </div>
+    <div class="mb-3">
+        <label class="font-weight-bold mb-2" for="inputEmailAddress">Satış Fiyatı</label>
+        @Html.TextBoxFor(x => x.SatisFiyat, new { @class = "form-control py-4", @placeholder = "Satış Fiyatı Giriniz" })
+    </div>
+    <div class="mb-3">
+        <label class="font-weight-bold mb-2" for="inputEmailAddress">Ürün Kategorisi</label>
+        @*@Html.TextBoxFor(x => x.Kategoriid, new { @class = "form-control py-4", @placeholder = "Ürün Kategorisi Giriniz" })*@
+        @Html.DropDownListFor(x => x.Kategoriid, (List<SelectListItem>)ViewBag.dgr1, new { @class="form-control"})
+    </div>
+    <div class="mb-3">
+        <label class="font-weight-bold mb-2" for="inputEmailAddress">Ürün Görseli</label>
+        @Html.TextBoxFor(x => x.Gorsel, new { @class = "form-control py-4", @placeholder = "Ürün Görsel URL Giriniz" })
+    </div>
+    <div>
+        <label class="font-weight-bold mb-2" for="inputEmailAddress">Durum</label>
+        @Html.TextBoxFor(x => x.Durum, new { @class = "form-control py-4", @placeholder = "Durum Giriniz" })
+    </div>
+    <div class="form-group mt-4 mb-0"><button class="btn btn-success btn-block">Kaydet</button></div>
+</form>
