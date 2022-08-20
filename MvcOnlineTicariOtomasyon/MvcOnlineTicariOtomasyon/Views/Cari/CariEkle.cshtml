@@ -1,0 +1,29 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.Cariler
+@{
+    ViewBag.Title = "CariEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="mt-4">Yeni Cari Ekleme Sayfası</h2>
+
+<form class="mt-5 form-group" method="post">
+    <div class="mb-4">
+        <label class="font-weight-bold mb-2" for="inputEmailAddress">Adı</label>
+        @*<input class="form-control py-4" id="inputEmailAddress" type="email"  aria-describedby="emailHelp" placeholder="Enter email address" />*@
+        @Html.TextBoxFor(x => x.CariAd, new { @class = "form-control py-4", @placeholder = "Ad Giriniz" })
+    </div>
+    <div class="mb-4">
+        <label class="font-weight-bold mb-2" for="inputEmailAddress">Soyadı</label>
+        @*<input class="form-control py-4" id="inputEmailAddress" type="email"  aria-describedby="emailHelp" placeholder="Enter email address" />*@
+        @Html.TextBoxFor(x => x.CariSoyad, new { @class = "form-control py-4", @placeholder = "Soyad Giriniz" })
+    </div>
+    <div class="mb-4">
+        <label class="font-weight-bold mb-2">Şehir</label>
+        @Html.TextBoxFor(x => x.CariSehir, new { @class = "form-control py-4", @placeholder = "Şehir Giriniz" })
+    </div>
+    <div class="mb-4">
+        <label class="font-weight-bold mb-2">Mail</label>
+        @Html.TextBoxFor(x => x.CariMail, new { @class = "form-control py-4", @placeholder = "Mail Giriniz" })
+    </div>
+    <div class="form-group mt-4 mb-0"><button class="btn btn-success btn-block">Kaydet</button></div>
+</form>
