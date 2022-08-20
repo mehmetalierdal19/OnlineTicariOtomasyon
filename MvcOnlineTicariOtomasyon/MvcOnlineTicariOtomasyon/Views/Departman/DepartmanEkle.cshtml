@@ -6,12 +6,16 @@
 
 <h2 class="mt-4">Yeni Departman Ekleme Sayfası</h2>
 
-<form class="mt-5" method="post">
-    <div class="form-group">
+<form class="mt-5 form-group" method="post">
+    <div class="mb-4">
         <label class="font-weight-bold mb-2" for="inputEmailAddress">Departman Adı</label>
         @*<input class="form-control py-4" id="inputEmailAddress" type="email"  aria-describedby="emailHelp" placeholder="Enter email address" />*@
         @Html.TextBoxFor(x => x.DepartmanAd, new { @class = "form-control py-4", @placeholder = "Departman Adı Giriniz" })
-
+    </div>
+    <div>
+        <label class="font-weight-bold mb-2" for="inputEmailAddress">Durum</label>
+        @*<input class="form-control py-4" id="inputEmailAddress" type="email"  aria-describedby="emailHelp" placeholder="Enter email address" />*@
+        @Html.TextBoxFor(x => x.Durum, new { @class = "form-control py-4", @placeholder = "Durum Giriniz" })
     </div>
     <div class="form-group mt-4 mb-0"><button class="btn btn-success btn-block">Kaydet</button></div>
 </form>
