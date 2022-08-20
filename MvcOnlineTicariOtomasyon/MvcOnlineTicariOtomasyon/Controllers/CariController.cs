@@ -9,11 +9,11 @@ namespace MvcOnlineTicariOtomasyon.Controllers
 {
     public class CariController : Controller
     {
-        Context C = new Context();
+        Context c = new Context();
         // GET: Cari
         public ActionResult Index()
         {
-            var degerler = C.Carilers.ToList();
+            var degerler = c.Carilers.Where(x => x.Durum == true).ToList();
             return View(degerler);
         }
         [HttpGet]
@@ -24,9 +24,40 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         [HttpPost]
         public ActionResult CariEkle(Cariler cari)
         {
-            C.Carilers.Add(cari);
-            C.SaveChanges();
+            cari.Durum = true;
+            c.Carilers.Add(cari);
+            c.SaveChanges();
             return RedirectToAction("Index");
+        }
+        public ActionResult CariSil(int id)
+        {
+            var deger = c.Carilers.Find(id);
+            deger.Durum = false;
+            c.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public ActionResult CariGetir(int id)
+        {
+            var deger = c.Carilers.Find(id);
+            return View(deger);
+        }
+        public ActionResult CariGuncelle(Cariler cari)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("CariGetir");
+            }
+            else
+            {
+                var deger = c.Carilers.Find(cari.CariID);
+                deger.CariAd = cari.CariAd;
+                deger.CariMail = cari.CariMail;
+                deger.CariSehir = cari.CariSehir;
+                deger.CariSoyad = cari.CariSoyad;
+                c.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
         }
     }
 }

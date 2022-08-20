@@ -11,8 +11,9 @@ namespace MvcOnlineTicariOtomasyon.Models.Siniflar
         [Key]
         public int CariID { get; set; }
         [StringLength(50)]
+        [Required(ErrorMessage ="Bu alanı boş geçemezsiniz!")]
         public string CariAd { get; set; }
-        [StringLength(50)]
+        [StringLength(50, ErrorMessage ="En fazla 50 karakter girebilirsiniz.")]
         public string CariSoyad { get; set; }
         [StringLength(50)]
         public string CariSehir { get; set; }

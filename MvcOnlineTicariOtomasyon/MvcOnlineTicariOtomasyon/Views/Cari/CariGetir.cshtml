@@ -1,0 +1,36 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.Cariler
+@{
+    ViewBag.Title = "CariGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="mt-4">Cari Güncelleme Sayfası</h2>
+
+@using (Html.BeginForm("CariGuncelle", "Cari", FormMethod.Post))
+{
+    <div class="form-group mt-5">
+        <div class="mb-4">
+            <label class="font-weight-bold mb-2" for="inputEmailAddress">Adı</label>,
+            @Html.HiddenFor(x => x.CariID)
+            @*<input class="form-control py-4" id="inputEmailAddress" type="email"  aria-describedby="emailHelp" placeholder="Enter email address" />*@
+            @Html.TextBoxFor(x => x.CariAd, new { @class = "form-control py-4", @placeholder = "Ad Giriniz" })
+            @Html.ValidationMessageFor(x => x.CariAd, "", new { @class="text-danger mt-3"})
+        </div>
+        <div class="mb-4">
+            <label class="font-weight-bold mb-2" for="inputEmailAddress">Soyadı</label>
+            @*<input class="form-control py-4" id="inputEmailAddress" type="email"  aria-describedby="emailHelp" placeholder="Enter email address" />*@
+            @Html.TextBoxFor(x => x.CariSoyad, new { @class = "form-control py-4", @placeholder = "Soyad Giriniz" })
+            @Html.ValidationMessageFor(x => x.CariSoyad, "", new { @class = "text-danger mt-3" })
+        </div>
+        <div class="mb-4">
+            <label class="font-weight-bold mb-2">Şehir</label>
+            @Html.TextBoxFor(x => x.CariSehir, new { @class = "form-control py-4", @placeholder = "Şehir Giriniz" })
+        </div>
+        <div class="mb-4">
+            <label class="font-weight-bold mb-2">Mail</label>
+            @Html.TextBoxFor(x => x.CariMail, new { @class = "form-control py-4", @placeholder = "Mail Giriniz" })
+        </div>
+        <div class="form-group mt-4 mb-0"><button class="btn btn-success btn-block">Güncelle</button></div>
+    </div>
+}
+
