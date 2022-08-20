@@ -35,5 +35,25 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             c.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult DepartmanGetir(int id)
+        {
+            var deger = c.Departmans.Find(id);
+            return View("DepartmanGetir", deger);
+        }
+        public ActionResult DepartmanGuncelle(Departman p)
+        {
+            var deger = c.Departmans.Find(p.DepartmanID);
+            deger.DepartmanAd = p.DepartmanAd;
+            deger.Durum = p.Durum;
+            c.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public ActionResult DepartmanDetay(int id)
+        {
+            var deger = c.Personels.Where(x => x.Departmanid == id).ToList();
+            var dad = c.Departmans.Find(id);
+            ViewBag.ad = dad.DepartmanAd;
+            return View(deger);
+        }
     }
 }

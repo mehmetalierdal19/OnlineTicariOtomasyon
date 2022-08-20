@@ -1,0 +1,26 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.Departman
+@{
+    ViewBag.Title = "DepartmanGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="mt-4">Kategori Güncelleme Sayfası</h2>
+
+@using (Html.BeginForm("DepartmanGuncelle", "Departman", FormMethod.Post))
+{
+    <div class="form-group mt-5">
+        <div class="mb-4">
+            <label class="font-weight-bold mb-2" for="inputEmailAddress">Kategori Ad</label>
+            @*<input class="form-control py-4" id="inputEmailAddress" type="email"  aria-describedby="emailHelp" placeholder="Enter email address" />*@
+            @Html.TextBoxFor(x => x.DepartmanID, new { @class = "form-control py-4", @type = "hidden" })
+            @Html.TextBoxFor(x => x.DepartmanAd, new { @class = "form-control py-4"})
+        </div>
+        <div class="mb-4">
+            <label class="font-weight-bold mb-2" for="inputEmailAddress">Durum</label>
+            @Html.TextBoxFor(x => x.Durum, new { @class = "form-control py-4"})
+        </div>
+
+    </div>
+    <div class="form-group mt-4 mb-0"><button class="btn btn-info btn-block">Güncelle</button></div>
+}
+
