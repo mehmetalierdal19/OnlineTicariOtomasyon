@@ -21,20 +21,16 @@
     </div>
     <div class="mb-3">
         <label class="font-weight-bold mb-2" for="inputEmailAddress">Adet</label>
-        @Html.TextBoxFor(x => x.Adet, new { @class = "form-control py-4", @placeholder = "Alış Fiyatı Giriniz" })
+        @Html.TextBoxFor(x => x.Adet, new { @class = "form-control py-4"})
     </div>
     <div class="mb-3">
         <label class="font-weight-bold mb-2" for="inputEmailAddress">Fiyat</label>
         @*@Html.TextBoxFor(x => x.Kategoriid, new { @class = "form-control py-4", @placeholder = "Ürün Kategorisi Giriniz" })*@
-        @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control py-4", @placeholder = "Alış Fiyatı Giriniz" })
+        @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control py-4"})
     </div>
     <div class="mb-3">
         <label class="font-weight-bold mb-2" for="inputEmailAddress">Toplam Tutar</label>
-        @Html.TextBoxFor(x => x.ToplamTutar, new { @class = "form-control py-4", @placeholder = "Ürün Görsel URL Giriniz" })
+        @Html.TextBoxFor(x => x.ToplamTutar, new { @class = "form-control py-4"})
     </div>
-    @*<div>
-        <label class="font-weight-bold mb-2" for="inputEmailAddress"></label>
-        @Html.TextBoxFor(x => x.Durum, new { @class = "form-control py-4", @placeholder = "Durum Giriniz" })
-    </div>*@
     <div class="form-group mt-4 mb-0"><button class="btn btn-success btn-block">Satış Yap</button></div>
 </form>
