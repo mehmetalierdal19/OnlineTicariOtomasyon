@@ -1,0 +1,50 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Siniflar
+@model List<SatisHareket>
+@{
+    ViewBag.Title = "SatisDetay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="mt-4 w-75 mx-auto">Satış Detay</h2>
+<div class="card bg-light my-4 w-75 mx-auto">
+    @foreach (var x in Model)
+    {
+        <div class="card-body">
+            <label class="font-weight-bold">Satış ID: </label>
+            <label>@x.SatisID</label>
+        </div>
+        <div class="card-body">
+            <label class="font-weight-bold">Ürün: </label>
+            <label>@x.Urun.UrunAd</label>
+        </div>
+        <div class="card-body">
+            <label class="font-weight-bold">Cari: </label>
+            <label>@x.Cariler.CariAd @x.Cariler.CariSoyad</label>
+        </div>
+        <div class="card-body">
+            <label class="font-weight-bold">Personel: </label>
+            <label>@x.Personel.PersonelAd @x.Personel.PersonelSoyad</label>
+        </div>
+        <div class="card-body">
+            <label class="font-weight-bold">Ürün Fiyat: </label>
+            <label>@x.Fiyat</label>
+        </div>
+        <div class="card-body">
+            <label class="font-weight-bold">Ürün Adet: </label>
+            <label>@x.Adet</label>
+        </div>
+        <div class="card-body">
+            <label class="font-weight-bold">Toplam Tutar: </label>
+            <label>@x.ToplamTutar</label>
+        </div>
+        <div class="card-body">
+            <label class="font-weight-bold">Tarih: </label>
+            <label>@x.Tarih.Day.@x.Tarih.Month.@x.Tarih.Year</label>
+        </div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+            <a href="/Satis/SatisYazdir/@x.SatisID" class="btn btn-info">Yazdır</a>
+        </div>
+    }
+
+</div>
+

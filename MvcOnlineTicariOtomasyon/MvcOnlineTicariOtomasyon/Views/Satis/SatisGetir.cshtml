@@ -1,0 +1,36 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.SatisHareket
+@{
+    ViewBag.Title = "SatisGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="mt-4">SatisGetir</h2>
+
+@using (Html.BeginForm("SatisGuncelle", "Satis", FormMethod.Post))
+{
+    <div class="form-group mt-4">
+        <div class="mb-3">
+            <label class="font-weight-bold mb-2" for="inputEmailAddress">Ürün</label>
+            @Html.HiddenFor(x => x.SatisID)
+            @Html.DropDownListFor(x => x.Urunid, (List<SelectListItem>)ViewBag.urun, new { @class = "form-control" })
+        </div>
+        <div class="mb-3">
+            <label class="font-weight-bold mb-2" for="inputEmailAddress">Cari</label>
+            @Html.DropDownListFor(x => x.Cariid, (List<SelectListItem>)ViewBag.cari, new { @class = "form-control" })
+        </div>
+        <div class="mb-3">
+            <label class="font-weight-bold mb-2" for="inputEmailAddress">Personel</label>
+            @Html.DropDownListFor(x => x.Personelid, (List<SelectListItem>)ViewBag.personel, new { @class = "form-control" })
+        </div>
+        <div class="mb-3">
+            <label class="font-weight-bold mb-2" for="inputEmailAddress">Fiyat</label>
+            @*@Html.TextBoxFor(x => x.Kategoriid, new { @class = "form-control py-4", @placeholder = "Ürün Kategorisi Giriniz" })*@
+            @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control py-4" })
+        </div>
+        <div class="mb-3">
+            <label class="font-weight-bold mb-2" for="inputEmailAddress">Toplam Tutar</label>
+            @Html.TextBoxFor(x => x.ToplamTutar, new { @class = "form-control py-4" })
+        </div>
+        <div class="form-group mt-4 mb-0"><button class="btn btn-success btn-block">Güncelle</button></div>
+    </div>
+}
