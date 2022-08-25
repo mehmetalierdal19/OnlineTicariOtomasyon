@@ -46,5 +46,25 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             c.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult FaturaDetay(int id)
+        {
+            var degerler = c.FaturaKalems.Where(x => x.Faturaid == id).ToList();
+            ViewBag.fid = id;
+            return View(degerler);
+        }
+        [HttpGet]
+        public ActionResult YeniKalem()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult YeniKalem(FaturaKalem fk, int id)
+        {
+            fk.Faturaid = id;
+            fk.Tutar = fk.Miktar * fk.BirimFiyat;
+            c.FaturaKalems.Add(fk);
+            c.SaveChanges();
+            return RedirectToAction("FaturaDetay/" + id);
+        }
     }
 }
